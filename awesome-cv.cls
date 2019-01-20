@@ -701,19 +701,22 @@
 % Define a title of the cover letter
 % Usage: \makelettertitle
 \newcommand*{\makelettertitle}{%
-  \vspace{8.4mm}
+  \vspace{3.4mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \recipienttitlestyle{\@recipientname} & \letterdatestyle{\@letterdate}
+  %  \recipienttitlestyle{\@recipientname} & \letterdatestyle{\@letterdate}
+    \recipienttitlestyle{\@lettertitle} & \letterdatestyle{\@letterdate}
   \end{tabular*}
-  \begin{singlespace}
-    \recipientaddressstyle{\@recipientaddress} \\\\
-  \end{singlespace}
+  %\begin{singlespace}
+  %  \recipientaddressstyle{\@recipientaddress} \\\\
+  %\end{singlespace}
   \ifthenelse{\isundefined{\@lettertitle}}
     {}
-    {\lettertitlestyle{\@lettertitle} \\}
+  %  {\lettertitlestyle{\@lettertitle} \\}
+  \\\\
   \lettertextstyle{\@letteropening}
+  \\
 }
 
 % Define a closing of the cover letter
@@ -725,7 +728,7 @@
   \ifthenelse{\isundefined{\@letterenclosure}}
     {\\}
     {%
-      \\\\\\
+      \\\\\\\\\\
       \letterenclosurestyle{\@letterenclname: \@letterenclosure} \\
     }
 }
